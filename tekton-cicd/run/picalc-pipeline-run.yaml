@@ -11,7 +11,7 @@ spec:
         name: tekton-knative-git
   params:
     - name: pathToContext
-      value: "./"
+      value: "src"
     - name: pathToYamlFile
       value: "knative/helloworld-go.yaml"
     - name: imageUrl
