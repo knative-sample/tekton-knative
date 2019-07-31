@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineRun
+metadata:
+  generateName: tekton-kn-sample-
+spec:
+  pipelineRef:
+    name: build-and-deploy-pipeline
+  resources:
+    - name: git-source
+      resourceRef:
+        name: tekton-knative-git
+  params:
+    - name: pathToYamlFile
+      value: "knative/helloworld-go.yaml"
+    - name: imageUrl
+      value: "registry.cn-hangzhou.aliyuncs.com/knative-sample/tekton-knative-helloworld"
+    - name: imageTag
+      value: "1.0"
+  trigger:
+    type: manual
+  serviceAccount: pipeline-account
