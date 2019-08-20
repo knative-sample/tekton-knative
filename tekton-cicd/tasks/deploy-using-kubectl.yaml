@@ -10,8 +10,10 @@ spec:
     params:
       - name: pathToYamlFile
         description: The path to the yaml file to deploy within the git source
+        default: ""
       - name: imageUrl
         description: Url of image repository
+        default: ""
       - name: imageTag
         description: Tag of the images to be used.
         default: "latest"
