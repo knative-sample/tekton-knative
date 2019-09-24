@@ -25,11 +25,11 @@ spec:
       name: source-to-image
     params:
       - name: pathToContext
-        value: "${params.pathToContext}"
+        value: "$(params.pathToContext)"
       - name: imageUrl
-        value: "${params.imageUrl}"
+        value: "$(params.imageUrl)"
       - name: imageTag
-        value: "${params.imageTag}"
+        value: "$(params.imageTag)"
     resources:
       inputs:
         - name: git-source
@@ -41,11 +41,11 @@ spec:
       - source-to-image
     params:
       - name: pathToYamlFile
-        value: "${params.pathToYamlFile}"
+        value: "$(params.pathToYamlFile)"
       - name: imageUrl
-        value: "${params.imageUrl}"
+        value: "$(params.imageUrl)"
       - name: imageTag
-        value: "${params.imageTag}"
+        value: "$(params.imageTag)"
     resources:
       inputs:
         - name: git-source
