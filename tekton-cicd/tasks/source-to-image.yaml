@@ -1,4 +1,4 @@
-apiVersion: tekton.dev/v1alpha1
+ apiVersion: tekton.dev/v1alpha1
 kind: Task
 metadata:
   name: source-to-image
@@ -25,9 +25,9 @@ spec:
       command:
         - /kaniko/executor
       args:
-        - --dockerfile=${inputs.params.pathToDockerFile}
-        - --destination=${inputs.params.imageUrl}:${inputs.params.imageTag}
-        - --context=/workspace/git-source/${inputs.params.pathToContext}
+        - --dockerfile=$(inputs.params.pathToDockerFile)
+        - --destination=$(inputs.params.imageUrl):$(inputs.params.imageTag)
+        - --context=/workspace/git-source/$(inputs.params.pathToContext)
       env:
       - name: DOCKER_CONFIG
         value: /builder/home/.docker
