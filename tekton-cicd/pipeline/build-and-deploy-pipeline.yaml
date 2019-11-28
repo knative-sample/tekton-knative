@@ -20,25 +20,9 @@ spec:
       description: Tag to apply to the built image
       default: ""
   tasks:
-  - name: source-to-image
-    taskRef:
-      name: source-to-image
-    params:
-      - name: pathToContext
-        value: "$(params.pathToContext)"
-      - name: imageUrl
-        value: "$(params.imageUrl)"
-      - name: imageTag
-        value: "$(params.imageTag)"
-    resources:
-      inputs:
-        - name: git-source
-          resource: git-source
   - name: deploy-to-cluster
     taskRef:
       name: deploy-using-kubectl
-    runAfter:
-      - source-to-image
     params:
       - name: pathToYamlFile
         value: "$(params.pathToYamlFile)"
@@ -50,3 +34,4 @@ spec:
       inputs:
         - name: git-source
           resource: git-source
+
