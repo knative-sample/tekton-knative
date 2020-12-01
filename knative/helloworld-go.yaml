@@ -10,5 +10,3 @@ spec:
         spec:
           container:
             image: __IMAGE__
-            args:
-            - --trigger-config=/app/config/deployer-trigger.yaml
