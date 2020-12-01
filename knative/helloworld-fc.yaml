@@ -1,0 +1,24 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: helloworld-fc
+  annotations:
+    workload.serving.knative.aliyun.com/class: "fc"
+spec:
+  template:
+    metadata:
+      annotations:
+        fc.revision.serving.knative.aliyun.com/code-space: "inline"
+    spec:
+      containers:
+        - image: nodejs8
+          command:
+            - |
+              var getRawBody = require('raw-body')
+              var version = 'coffee-default'
+              module.exports.handler = function (request, response, context) {
+                  var respBody = new Buffer('Hello ' + version + '\n')
+                  response.setStatusCode(200)
+                  response.setHeader('content-type', 'application/json')
+                  response.send(respBody)
+              };
