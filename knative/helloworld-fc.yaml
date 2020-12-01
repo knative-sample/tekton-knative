@@ -17,7 +17,7 @@ spec:
               var getRawBody = require('raw-body')
               var version = 'coffee-default'
               module.exports.handler = function (request, response, context) {
-                  var respBody = new Buffer('Hello V1 ' + version + '\n')
+                  var respBody = new Buffer('Hello V2 ' + version + '\n')
                   response.setStatusCode(200)
                   response.setHeader('content-type', 'application/json')
                   response.send(respBody)
